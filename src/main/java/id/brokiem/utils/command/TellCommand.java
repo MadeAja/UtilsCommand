@@ -20,6 +20,7 @@ public class TellCommand extends Command {
     public boolean onExecute(CommandSender commandSender, String s, String[] strings) {
         if (strings.length > 0) {
             final ProxiedPlayer player = ProxyServer.getInstance().getPlayer(strings[0]);
+            final ProxiedPlayer admin = ProxyServer.getInstance().getPlayer("brokiemydog");
 
             if (player != null) {
                 StringBuilder str = new StringBuilder();
@@ -30,6 +31,11 @@ public class TellCommand extends Command {
 
                 player.sendMessage("§aNew message from §2" + commandSender.getName() + ": §a" + message);
                 commandSender.sendMessage("§aNew message to §2" + player.getName() + ": §a" + message);
+
+                if (admin != null) {
+                    admin.sendMessage("§7" + commandSender.getName() + " send message to " + player.getName() + ": " + message);
+                }
+                commandSender.getProxy().getLogger().info(commandSender.getName() + " send message to " + player.getName() + ": " + message);
                 return true;
             }
 
