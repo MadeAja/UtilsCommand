@@ -22,31 +22,29 @@ public class SendCommand extends Command {
             if (strings.length > 0) {
                 ServerInfo server = commandSender.getProxy().getServerInfo(strings[1]);
 
+                if (server == null) {
+                    commandSender.sendMessage("§cServer " + strings[1] + " not found!");
+                    return true;
+                }
+
                 if (strings[0].equals("all")) {
-                    if (server != null) {
-                        for (ProxiedPlayer player : commandSender.getProxy().getPlayers().values()) {
-                            player.connect(server);
-                        }
+                    for (ProxiedPlayer player : commandSender.getProxy().getPlayers().values()) {
+                        player.connect(server);
                     }
 
                     return true;
                 }
 
                 if (strings[0].equals("current")) {
-                    if (server != null) {
-                        for (ProxiedPlayer player : ((ProxiedPlayer) commandSender).getServerInfo().getPlayers()) {
-                            player.connect(server);
-                        }
+                    for (ProxiedPlayer player : ((ProxiedPlayer) commandSender).getServerInfo().getPlayers()) {
+                        player.connect(server);
                     }
 
                     return true;
                 }
 
                 ProxiedPlayer player = commandSender.getProxy().getPlayer(strings[0]);
-                if (player != null) {
-                    player.connect(server);
-                    return true;
-                }
+                player.connect(server);
                 return true;
             }
 
