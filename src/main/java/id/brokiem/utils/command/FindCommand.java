@@ -31,6 +31,6 @@ public class FindCommand extends Command {
 
         commandSender.sendMessage("Usage: /find <player>");
 
-        return false;
+        return true;
     }
 }

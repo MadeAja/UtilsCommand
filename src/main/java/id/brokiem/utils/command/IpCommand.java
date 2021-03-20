@@ -31,6 +31,6 @@ public class IpCommand extends Command {
 
         commandSender.sendMessage("Usage: /ip <player>");
 
-        return false;
+        return true;
     }
 }

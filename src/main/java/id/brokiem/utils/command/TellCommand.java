@@ -6,12 +6,12 @@ import dev.waterdog.command.CommandSender;
 import dev.waterdog.command.CommandSettings;
 import dev.waterdog.player.ProxiedPlayer;
 
-public class KickPlayerCommand extends Command {
+public class TellCommand extends Command {
 
-    public KickPlayerCommand(String name) {
+    public TellCommand(String name) {
         super(name, CommandSettings.builder()
-                .setDescription("kick specified player in the proxy")
-                .setPermission("utils.kickplayer.command")
+                .setDescription("tell message to the player!")
+                .setAliases(new String[]{"msg", "w"})
                 .build()
         );
     }
@@ -20,9 +20,16 @@ public class KickPlayerCommand extends Command {
     public boolean onExecute(CommandSender commandSender, String s, String[] strings) {
         if (strings.length > 0) {
             final ProxiedPlayer player = ProxyServer.getInstance().getPlayer(strings[0]);
+
             if (player != null) {
-                player.disconnect(strings[1], false);
-                commandSender.sendMessage("§aPlayer kicked successfully.");
+                StringBuilder str = new StringBuilder();
+                for (int i = 1; i < strings.length; i++) {
+                    str.append(strings[i]).append(" ");
+                }
+                String message = str.toString();
+
+                player.sendMessage("§aNew message from §2" + commandSender.getName() + ": §a" + message);
+                commandSender.sendMessage("§aNew message to §2" + player.getName() + ": §a" + message);
                 return true;
             }
 
@@ -30,7 +37,7 @@ public class KickPlayerCommand extends Command {
             return true;
         }
 
-        commandSender.sendMessage("Usage: /kickplayer <player>");
+        commandSender.sendMessage("Usage: /tell <player>");
 
         return true;
     }

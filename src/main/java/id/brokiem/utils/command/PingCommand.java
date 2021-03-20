@@ -42,6 +42,6 @@ public class PingCommand extends Command {
 
         commandSender.sendMessage("Usage: /ping");
 
-        return false;
+        return true;
     }
 }

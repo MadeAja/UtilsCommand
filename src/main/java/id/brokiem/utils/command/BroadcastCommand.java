@@ -27,6 +27,6 @@ public class BroadcastCommand extends Command {
 
         commandSender.sendMessage("Usage: /bc <message>");
 
-        return false;
+        return true;
     }
 }

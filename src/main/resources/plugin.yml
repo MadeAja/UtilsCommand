@@ -1,4 +1,4 @@
 name: Utils
-main: id.brokiem.utils
+main: id.brokiem.utils.UtilsLoader
 version: 1.0.0
 author: brokiem

@@ -14,5 +14,6 @@ public class UtilsLoader extends Plugin {
         getProxy().getCommandMap().registerCommand("find", new FindCommand("find"));
         getProxy().getCommandMap().registerCommand("ip", new IpCommand("ip"));
         getProxy().getCommandMap().registerCommand("send", new SendCommand("send"));
+        getProxy().getCommandMap().registerCommand("tell", new TellCommand("tell"));
     }
 }

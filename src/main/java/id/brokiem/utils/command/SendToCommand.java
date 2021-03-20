@@ -37,6 +37,6 @@ public class SendToCommand extends Command {
 
         commandSender.sendMessage("§cOnly player can run this command!");
 
-        return false;
+        return true;
     }
 }
