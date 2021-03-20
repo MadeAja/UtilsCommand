@@ -39,7 +39,7 @@ public class TellCommand extends Command {
                 return true;
             }
 
-            commandSender.sendMessage("§cPlayer  §4" + strings[0] + " §c not found!");
+            commandSender.sendMessage("§cPlayer §4" + strings[0] + " §cnot found!");
             return true;
         }
 
