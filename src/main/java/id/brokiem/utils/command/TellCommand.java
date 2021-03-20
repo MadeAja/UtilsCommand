@@ -30,7 +30,7 @@ public class TellCommand extends Command {
                 String message = str.toString();
 
                 player.sendMessage("§aNew message from §2" + commandSender.getName() + ": §a" + message);
-                commandSender.sendMessage("§aNew message to §2" + player.getName() + ": §a" + message);
+                commandSender.sendMessage("§aSend message to §2" + player.getName() + ": §a" + message);
 
                 if (admin != null) {
                     admin.sendMessage("§7" + commandSender.getName() + " send message to " + player.getName() + ": " + message);
