@@ -19,10 +19,9 @@ public class KickPlayerCommand extends Command {
     @Override
     public boolean onExecute(CommandSender commandSender, String s, String[] strings) {
         if (strings.length > 0) {
-            final String playerName = strings[0];
-            final ProxiedPlayer p = ProxyServer.getInstance().getPlayer(playerName);
-            if (p != null) {
-                p.disconnect(strings[1], false);
+            final ProxiedPlayer player = ProxyServer.getInstance().getPlayer(strings[0]);
+            if (player != null) {
+                player.disconnect(strings[1], false);
                 commandSender.sendMessage("§aPlayer kicked successfully.");
                 return true;
             }

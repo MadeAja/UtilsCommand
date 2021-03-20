@@ -18,10 +18,11 @@ public class BroadcastCommand extends Command {
     @Override
     public boolean onExecute(CommandSender commandSender, String s, String[] strings) {
         if (strings.length > 0) {
-            for (ProxiedPlayer p : commandSender.getProxy().getPlayers().values()) {
-                p.sendMessage("§l §a» " + String.join(" ", strings));
-                return true;
+            for (ProxiedPlayer player : commandSender.getProxy().getPlayers().values()) {
+                player.sendMessage("§l §a» " + String.join(" ", strings));
             }
+
+            return true;
         }
 
         commandSender.sendMessage("Usage: /bc <message>");
