@@ -21,7 +21,7 @@ public class KickPlayerCommand extends Command {
         if (strings.length > 0) {
             final ProxiedPlayer player = ProxyServer.getInstance().getPlayer(strings[0]);
             if (player != null) {
-                player.disconnect(strings[1], false);
+                player.disconnect("You are kicked from the server: " + strings[1], false);
                 commandSender.sendMessage("§aPlayer kicked successfully.");
                 return true;
             }

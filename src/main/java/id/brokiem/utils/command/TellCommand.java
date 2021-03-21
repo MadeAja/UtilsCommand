@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class TellCommand extends Command {
 
-    public static final String URL_CHECKER = "((play[.])?[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|.]((com|org|net|xyz|to|mc|id|me)))";
+    public static final String URL_CHECKER = "((play[.])?[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|.](com|org|net|xyz|to|mc|id|me))";
 
     public TellCommand(String name) {
         super(name, CommandSettings.builder()
